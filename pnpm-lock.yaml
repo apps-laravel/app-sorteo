@@ -11,15 +11,24 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
         version: 5.0.4(vite@5.2.10)(vue@3.4.25)
+      add:
+        specifier: ^2.0.6
+        version: 2.0.6
       install:
         specifier: ^0.13.0
         version: 0.13.0
       js-confetti:
         specifier: ^0.12.0
         version: 0.12.0
+      sweetalert2:
+        specifier: ^11.10.8
+        version: 11.10.8
       vue-router:
         specifier: '4'
         version: 4.3.2(vue@3.4.25)
+      vue-select:
+        specifier: 4.0.0-beta.6
+        version: 4.0.0-beta.6(vue@3.4.25)
       vue3-avataaars:
         specifier: ^1.0.15
         version: 1.0.15
@@ -319,6 +328,9 @@ packages:
   '@vue/shared@3.4.25':
     resolution: {integrity: sha512-k0yappJ77g2+KNrIaF0FFnzwLvUBLUYr8VOwz+/6vLsmItFp51AcxLL7Ey3iPd7BIRyWPOcqUjMnm7OkahXllA==}
 
+  add@2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
+
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
@@ -431,6 +443,9 @@ packages:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
 
+  sweetalert2@11.10.8:
+    resolution: {integrity: sha512-oAkYROBfXBY+4sVbQEIcN+ZxAx69lsmz5WEBwdEpyS4m59vOBNlRU5/fJpAI1MVfiDwFZiGwVzB/KBpOyfLNtg==}
+
   to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -470,6 +485,11 @@ packages:
     resolution: {integrity: sha512-hKQJ1vDAZ5LVkKEnHhmm1f9pMiWIBNGF5AwU67PdH7TyXCj/a4hTccuUuYCAMgJK6rO/NVYtQIEN3yL8CECa7Q==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue-select@4.0.0-beta.6:
+    resolution: {integrity: sha512-K+zrNBSpwMPhAxYLTCl56gaMrWZGgayoWCLqe5rWwkB8aUbAUh7u6sXjIR7v4ckp2WKC7zEEUY27g6h1MRsIHw==}
+    peerDependencies:
+      vue: 3.x
 
   vue3-avataaars@1.0.15:
     resolution: {integrity: sha512-pjygf/Z5B/vEEWM8AtKjpA/uItKYbvaVW8NHbbEFTek2YTqzeLMnsuPVDMEul8CZs5JqxcI1OMvXAEt+5e9gwg==}
@@ -679,6 +699,8 @@ snapshots:
 
   '@vue/shared@3.4.25': {}
 
+  add@2.0.6: {}
+
   asynckit@0.4.0: {}
 
   axios@1.6.8:
@@ -808,6 +830,8 @@ snapshots:
 
   source-map-js@1.2.0: {}
 
+  sweetalert2@11.10.8: {}
+
   to-fast-properties@2.0.0: {}
 
   vite-plugin-full-reload@1.1.0:
@@ -826,6 +850,10 @@ snapshots:
   vue-router@4.3.2(vue@3.4.25):
     dependencies:
       '@vue/devtools-api': 6.6.1
+      vue: 3.4.25
+
+  vue-select@4.0.0-beta.6(vue@3.4.25):
+    dependencies:
       vue: 3.4.25
 
   vue3-avataaars@1.0.15:
