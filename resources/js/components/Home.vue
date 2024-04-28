@@ -5,6 +5,7 @@ import { Avatar } from 'vue3-avataaars';
 <script>
   import {Factory} from "vue3-avataaars";
   import JSConfetti from 'js-confetti'
+  import Swal from "sweetalert2";
 
 
   export default {
@@ -18,15 +19,12 @@ import { Avatar } from 'vue3-avataaars';
               listTwo: ['BlondeGolden','lightBlonde'],
               top: 'LongHairStraight2',
               hairColor: 'BlondeGolden',
-              users: [
-                  {name: 'Juan', gender:'M'},
-                  {name: 'Maria', gender:'F'},
-                  {name: 'Pedro', gender:'M'},
-                  {name: 'Luis', gender:'M'},
-                  {name: 'Ana', gender:'F'},
-              ],
+              users: [],
               jsConfetti: new JSConfetti(),
           };
+      },
+      mounted() {
+          this.getUsers()
       },
       watch: {
             timerEnabled(value) {
@@ -38,6 +36,11 @@ import { Avatar } from 'vue3-avataaars';
                   if (value === 0) {
                       this.timerEnabled = false;
                       this.countDown = 4;
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Felicidades!',
+                          text: `El ganador es ${this.name}`,
+                      })
                       this.jsConfetti.addConfetti()
                   }
               },
@@ -45,6 +48,10 @@ import { Avatar } from 'vue3-avataaars';
           },
       },
       methods: {
+          async getUsers() {
+              const {data} = await axios.get('/api/users');
+              this.users = data.data;
+          },
           getRandomUser( ) {
                const {name,gender} = this.users[Math.floor(Math.random() * this.users.length)]
                  this.genderAvatar(gender)
@@ -68,7 +75,11 @@ import { Avatar } from 'vue3-avataaars';
           },
           start() {
                 if(this.users.length >=5) return  this.timerEnabled = true;
-
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'No hay suficientes usuarios para realizar el sorteo!',
+                })
           },
       },
   };

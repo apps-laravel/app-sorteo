@@ -14,16 +14,24 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('last_name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->double('cc')->unique();
+            $table->string('gender');
+            $table->double('phone');
+            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('city_id');
             $table->timestamps();
+
+            $table->foreign('department_id')->references('id')->on('departments');
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
     /**
      * Reverse the migrations.
+     * php artisan make:migration create_departments_table --create=departments
+     * php artisan make:migration create_cities_table --create=cities
      */
     public function down(): void
     {

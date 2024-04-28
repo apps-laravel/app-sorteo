@@ -1,3 +1,27 @@
+<script>
+
+
+export default {
+    methods: {
+         downloadExcel() {
+             axios.get('/api/download', { responseType: 'blob' })
+                 .then(response => {
+                     const url = window.URL.createObjectURL(new Blob([response.data]));
+                     const link = document.createElement('a');
+                     link.href = url;
+                     link.setAttribute('download', 'users.xlsx');
+                     document.body.appendChild(link);
+                     link.click();
+                 })
+                 .catch(error => {
+                     console.error('Error al exportar usuarios', error);
+                 });
+        }
+    }
+}
+</script>
+
+
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -13,7 +37,9 @@
                         </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link download"
+
+                           @click="downloadExcel()">
                             <i class="bi bi-arrow-down-circle-fill"></i>
                             Download
                         </a>
@@ -38,5 +64,9 @@
         <RouterView />
     </main>
 </template>
-<script setup>
-</script>
+<style>
+    .download {
+        cursor: pointer;
+    }
+</style>
+

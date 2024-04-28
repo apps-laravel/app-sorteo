@@ -19,7 +19,7 @@ yarn-error.log
 /.vscode
 .pnpm-lock.yaml
 /.pnpm-store
-.Dockerfile
+Dockerfile
 docker-compose.yml
 /nginx
 
