@@ -1,7 +1,12 @@
+<script  setup>
+import { Avatar } from 'vue3-avataaars';
+</script>
+
 <script>
 import vSelect from 'vue-select'
 import 'vue-select/dist/vue-select.css';
 import Swal from "sweetalert2";
+import {Factory} from "vue3-avataaars";
 
 export default {
     components: {
@@ -30,7 +35,8 @@ export default {
                 gender: null,
                 city: null
             },
-            checked: false
+            checked: false,
+            props: Factory(),
         }
     },
     mounted() {
@@ -71,6 +77,7 @@ export default {
                 gender: null,
                 city: null
             }
+            this.checked = false;
             this.selectedDepartment = null;
         },
         validateForm() {
@@ -251,7 +258,7 @@ export default {
                                             <button  @click.prevent="save()"
                                                      type="submit"
                                                      class="btn btn-primary px-4 float-end mt-4"
-                                                    >login
+                                                    > Registrar
                                             </button>
                                         </div>
                                     </form>
@@ -259,7 +266,7 @@ export default {
                             </div>
                             <div class="col-md-5 ps-0 d-none d-md-block">
                                 <div class="form-right h-100 bg-primary text-white text-center pt-5">
-                                    <i class="bi bi-bootstrap"></i>
+                                    <Avatar v-bind="props"></Avatar>
                                 </div>
                             </div>
                         </div>
@@ -284,4 +291,5 @@ a {
 .form-right i {
     font-size: 100px;
 }
+
 </style>

@@ -13,7 +13,7 @@ import { Avatar } from 'vue3-avataaars';
           return {
               name:'Click en el boton para generar sorteo',
               timerEnabled: false,
-              countDown: 4,
+              countDown: 6,
               props: Factory(),
               listOne: ['LongHairStraight2','LongHairShavedSides'],
               listTwo: ['BlondeGolden','lightBlonde'],
@@ -78,7 +78,7 @@ import { Avatar } from 'vue3-avataaars';
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'No hay suficientes usuarios para realizar el sorteo!',
+                    text: 'No hay suficientes usuarios registrados en Bogotá  para realizar el sorteo, registra al menos 5 usuarios' ,
                 })
           },
       },

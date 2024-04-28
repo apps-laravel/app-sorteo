@@ -1,6 +1,5 @@
+
 <script>
-
-
 export default {
     methods: {
          downloadExcel() {
@@ -33,7 +32,7 @@ export default {
                                     class="nav-link"
                                     exactActiveClass="nav-link active" >
                                     <i class="bi bi-house-door"></i>
-                                    Home
+                                    Inicio
                         </RouterLink>
                     </li>
                     <li class="nav-item">
@@ -41,7 +40,7 @@ export default {
 
                            @click="downloadExcel()">
                             <i class="bi bi-arrow-down-circle-fill"></i>
-                            Download
+                            Descargar
                         </a>
                     </li>
                 </ul>
@@ -52,7 +51,7 @@ export default {
                               class="nav-link"
                               exactActiveClass="nav-link active">
                               <i class="bi bi-person-add"></i>
-                                Register
+                                Registro
                   </RouterLink>
                 </ul>
             </div>
