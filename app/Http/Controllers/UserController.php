@@ -12,11 +12,14 @@ class UserController extends Controller
 {
     function index()
     {
-        $users = User::all()->map(function($user){
-            return [
-                'name' => $user->full_name,
-                'gender' => $user->gender
-            ];
+        $users = User::join('cities','users.city_id','=','cities.id')
+              ->where('cities.name','like','%Bogota%')
+              ->select('users.name','last_name','gender')->get();
+
+        $users->map(function($item){
+            $item->name = $item->fullName;
+            unset($item->last_name);
+            return $item;
         });
 
         return response()->json(['data'=>$users],200);
